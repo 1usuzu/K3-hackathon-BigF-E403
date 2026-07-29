@@ -1,6 +1,6 @@
 # Guide xuyên suốt — 5 giai đoạn, bám 6 mốc
 
-> **Cách dùng:** Một file duy nhất, đọc theo thứ tự giai đoạn. Mỗi giai đoạn mở đầu bằng **các câu hỏi nhóm phải tự suy luận và trả lời** — đó là phần quan trọng nhất; scaffold (khung output) chỉ là phần nhẹ để chốt lại. Đừng biến bài này thành đi điền template.
+> **Cách dùng:** Một file duy nhất, đọc theo thứ tự giai đoạn. Mỗi giai đoạn mở đầu bằng **các câu hỏi nhóm phải tự suy luận và trả lời** — đó là phần quan trọng nhất; scaffold (khung output) chỉ là phần nhẹ để chốt lại. Worksheet và bảng mẫu chỉ dùng để chốt lại kết quả — phần quan trọng là nhóm tự trả lời được các câu hỏi.
 
 | Giai đoạn | Mốc tương ứng | Mục |
 |---|---|---|
@@ -19,7 +19,7 @@
 1. **Ai** là người trực tiếp làm việc này? Một vai cụ thể (học viên đang-trong-buổi-học · học viên ôn trước quiz · học viên nghỉ buổi · học viên hỏi bài trên Discord · giảng viên soạn quiz · TA trả lời câu hỏi lặp) — không phải "học viên nói chung".
 2. Họ đang cố **hoàn thành việc gì**? Viết thành một câu `verb + object + bối cảnh`, không có tên sản phẩm/AI trong câu. Tự kiểm: bỏ AI đi, việc đó còn tồn tại không? Không còn = bạn đang tìm chỗ nhét AI, chọn lại.
 3. Hôm nay họ đang giải quyết bằng gì (tua video · hỏi bạn · hỏi tutor · ChatGPT riêng · bỏ qua)? **Nó fail ở đâu, và vì sao họ chưa bỏ nó?**
-4. **Bằng chứng nào** cho thấy họ đau thật — số đếm được từ data, hay lời nguyên văn của họ? "Em nghĩ là" không phải bằng chứng.
+4. **Bằng chứng nào** cho thấy họ đau thật — số đếm được từ data, hay lời nguyên văn của họ? Cảm nhận cá nhân chưa phải là bằng chứng.
 5. Nhóm thấy **≥3 hướng khả dĩ** — vì sao chọn hướng này? Trả lời bằng số: bao nhiêu người gặp × tần suất × mỗi lần tốn gì (phút / điểm số / niềm tin), và có build nổi trong sự kiện không.
 
 ## 1.2 Cách làm nhanh JTBD *(15-20')*
@@ -33,7 +33,7 @@
 1. **Đọc 30-50 mẫu trước, đếm sau** — đọc chatlog/log Trợ lý Học viên để biết *loại* pattern tồn tại (tin cụt "hii/hả"? tutor trả template dài? câu hỏi logistics? cite sai trang? câu hỏi lặp?), rồi mới định nghĩa tiêu chí đếm.
 2. **Đếm được mới là bằng chứng**: "41/200 hội thoại mở đầu bằng tin không-phải-câu-hỏi" ✓ · "nhiều bạn nhắn linh tinh" ✗.
 3. **Ghi phương pháp đếm** (đếm gì, trên bao nhiêu mẫu, quy tắc xếp loại) — người khác kiểm lại được mới tính. Giữ ≥5 ví dụ nguyên văn.
-4. Khảo sát/phỏng vấn: hỏi về **lần gần nhất** ("lần gần nhất bạn muốn xem lại một đoạn bài giảng, bạn làm gì? mất bao lâu?") — đừng hỏi ý kiến ("bạn có cần tính năng X không?" — ai cũng gật, vô giá trị). **Log toàn bộ: câu đã hỏi + từng câu trả lời nguyên văn + ai trả lời.** Không log = không tính.
+4. Khảo sát/phỏng vấn: hỏi về **lần gần nhất** ("lần gần nhất bạn muốn xem lại một đoạn bài giảng, bạn làm gì? mất bao lâu?") — tránh hỏi ý kiến kiểu "bạn có cần tính năng X không?" — hầu như ai cũng trả lời có, dữ liệu thu được không dùng được. **Ghi log toàn bộ: câu đã hỏi, từng câu trả lời nguyên văn, và ai trả lời.** Không có log thì không được tính là bằng chứng.
 
 **Chuẩn bằng chứng** (tiêu chí nghiệm thu 2 — hoàn thiện đến 23:59, CP1 chỉ cần mầm):
 - **Đường A — khảo sát:** ≥20 người ngoài nhóm · ≥50% xác nhận · log đầy đủ.
@@ -42,7 +42,7 @@
 
 ## 1.4 Chọn bài toán bằng bảng impact *(scaffold nhẹ)*
 
-Với ≥3 ứng viên, mỗi cái một dòng: `ứng viên | bao nhiêu người gặp (từ evidence) | tần suất | mỗi lần tốn gì | build nổi không | chọn?`. Hai ứng viên sát nhau → cái có **evidence mạnh hơn** thắng. Ứng viên bị loại giữ lại trong spec §2 — người chấm cần thấy nhóm đã cân nhắc gì.
+Với ≥3 ứng viên, mỗi cái một dòng: `ứng viên | bao nhiêu người gặp (từ evidence) | tần suất | mỗi lần tốn gì | build nổi không | chọn?`. Hai ứng viên sát nhau → chọn ứng viên có **bằng chứng mạnh hơn**. Ứng viên bị loại giữ lại trong spec §2 — người chấm cần thấy nhóm đã cân nhắc gì.
 
 ## 1.5 Gặp TA ở CP1 cần show *(scaffold Canvas — 7 dòng)*
 
@@ -76,7 +76,7 @@ Lý do trong spec viết theo cost-of-error: *sai thì ai chịu gì, sửa đ�
 
 ## 2.4 Nguyên tắc HAX/PAIR — chọn ≥4, khai trong spec §4b, mỗi cái trỏ vào chỗ cụ thể
 
-*(Tra bản gốc khi cần: microsoft.com/haxtoolkit/ai-guidelines · pair.withgoogle.com/guidebook. Khai mà không trỏ được vào prototype là khai khống — TA soát tại CP4.)*
+*(Tra bản gốc khi cần: microsoft.com/haxtoolkit/ai-guidelines · pair.withgoogle.com/guidebook. Mỗi nguyên tắc khai báo phải chỉ ra được vị trí áp dụng cụ thể trong prototype — TA kiểm tra tại CP4.)*
 
 **Nhóm khởi đầu (chọn ≥1):**
 - **G1 — Làm rõ hệ thống làm được gì.** Câu đầu tiên user thấy có nói đúng phạm vi không? (Tutor chào bằng cả đoạn văn — có ai đọc?)
@@ -108,11 +108,11 @@ Chạy **HAX Playbook** (github.com/microsoft/HAXPlaybook — trả lời bộ c
 2. **Đặt tên cho lỗi.** Gom output tệ thành nhóm lỗi có tên (bịa nguồn / lạc trình độ / cite sai trang / đoán khi thiếu thông tin / vượt thẩm quyền...), đối chiếu 4 lớp để không sót. Mỗi lỗi: trigger → biểu hiện → hậu quả. *(HAX Playbook; Aman Khan — "Beyond vibe checks", Lenny's Newsletter.)*
 3. **Biến mỗi chiều chất lượng thành định nghĩa kiểm chứng được.** "Trả lời tốt" không đo được. Tách chiều (đúng-có-căn-cứ / đúng cỡ-đúng giọng / an toàn), mỗi chiều: pass/fail ("mọi thông tin trace được về transcript") hoặc thang có mô tả mức (1 = sai kiến thức; 3 = đúng nhưng dài gấp đôi cần; 5 = đúng, đúng cỡ, có trích dẫn). *(HAX G2.)*
 4. **Test độ rõ bằng người thứ hai.** Hai thành viên chấm độc lập cùng 5 output → so. Lệch = định nghĩa mơ hồ → viết lại. Trong nhóm còn chấm khác nhau thì không dùng chấm được ai.
-5. **Golden set ≥10 case nhóm tự làm** (case thường + ≥2 case/lớp chỗ khó + case hiếm — lấy từ chatlog thật càng tốt, lưu `eval/`) và **chốt bar TRƯỚC khi đo**: "Đạt khi ≥ __% qua bộ, và [điều kiện cứng]" — khoá tại spec.md 23:59, không hạ sau. Không đạt + phân tích được vì sao = vẫn ăn trọn điểm. Sửa số liệu = mất hết. *(Bài giảng Ship/Limited/Hold.)*
+5. **Golden set ≥20 case nhóm tự xây**: ≥2 case cho mỗi lớp chỗ khó + 8-10 case thường + 2-4 case hiếm; trong đó **≥10 case lấy hoặc phát triển từ chatlog thật** (nhóm dùng promptfoo nên mở rộng lên 30+). Lưu file trong `eval/` và **chốt quality bar trước khi đo**: "Đạt khi ≥ __% qua bộ, và [điều kiện cứng]" — chốt tại spec.md 23:59 và giữ nguyên sau đó. Không đạt quality bar nhưng phân tích được nguyên nhân vẫn được tính đủ điểm; số liệu bị chỉnh sửa sẽ không được tính. *(Bài giảng Ship/Limited/Hold.)*
 
 ## 2.7 Trước CP4 tự soát
 
-Spec đủ §1-§9 theo `03-template-ai-spec.md` · evidence đạt chuẩn A/B có log · bảng impact ≥3 ứng viên + ứng viên loại · ≥4 nguyên tắc có "áp vào đâu" · 4 lớp + ≥8 kịch bản · bar bằng % · kế hoạch sáng N2 (ai validate, ai dry run). **Commit spec.md trước 23:59 — bar khoá từ đây.**
+Spec đủ §1-§9 theo `03-template-ai-spec.md` · evidence đạt chuẩn A/B có log · bảng impact ≥3 ứng viên + ứng viên loại · ≥4 nguyên tắc có "áp vào đâu" · 4 lớp + ≥8 kịch bản · quality bar bằng % · kế hoạch sáng N2 (ai validate, ai dry run). **Commit spec.md trước 23:59 — quality bar chốt từ thời điểm này.**
 
 ---
 
@@ -130,7 +130,7 @@ Spec đủ §1-§9 theo `03-template-ai-spec.md` · evidence đạt chuẩn A/B 
 | Mock | Flow bấm được, data giả, AI thật ở lõi | Demo trọn 4 đường đi trải nghiệm |
 | Working | Chạy end-to-end với data pack thật | Đưa cho user thật dùng thử |
 
-**Mức nào cũng bắt buộc ≥1 lời gọi AI chạy thật.** Sketch làm tử tế ăn điểm cao hơn Working cẩu thả — rubric chấm chuỗi quyết định, không chấm độ hoành tráng.
+**Mức nào cũng bắt buộc có ≥1 lời gọi AI chạy thật.** Một bản Sketch làm kỹ được đánh giá cao hơn một bản Working làm vội — rubric chấm chuỗi quyết định, không chấm mức độ hoành tráng.
 
 ## 3.3 Multi-prototype *(khuyến khích — giữa CP2 và CP3 nếu kịp)*
 
@@ -141,7 +141,7 @@ Trước khi build sâu, dựng nhanh **≥2 phương án khác nhau ở MỘT q
 - **Builder:** v0.dev (UI đẹp nhanh) · Lovable/Bolt.new (nhóm không dev — đăng ký free tier TRƯỚC) · Figma Make (nhóm mạnh design) · Claude Code/Cursor (nhóm kỹ thuật).
 - **AI call:** Google AI Studio (Gemini free tier ~1.500 req/ngày — free tier có thể dùng data để train → **chỉ đưa data giả/data pack**) · API key khoá học nếu ban tổ chức cấp.
 - **Luật an toàn:** ① không commit API key/.env — key để biến môi trường; ② chỉ dùng data giả hoặc data pack — không data thật của người thật; ③ repo public: trước khi push soát không key, không thông tin cá nhân, không đổ nguyên data pack lên (trích ngắn minh hoạ được).
-- **Kẹt kỹ thuật >20 phút: gọi TA** — CP2 chính là mốc cứu hộ. Ghi lỗi + cách gỡ vào notes, dùng cho reflection.
+- **Kẹt kỹ thuật quá 20 phút: gọi TA** — CP2 chính là mốc hỗ trợ kỹ thuật. Ghi lại lỗi và cách xử lý vào notes để dùng cho reflection.
 
 ## 3.5 Phân công song song *(nhóm 4-5 người, tham khảo)*
 
@@ -157,7 +157,7 @@ Trước khi build sâu, dựng nhanh **≥2 phương án khác nhau ở MỘT q
 
 **Nhịp lặp:** `chạy trọn bộ → bảng % → chọn MỘT failure đau nhất → sửa → chạy lại trọn bộ`. Sửa xong phải chạy **trọn bộ** (sửa chỗ này vỡ chỗ kia là chuyện thường của prompt). Mỗi lượt một bản ghi trong `eval/`, đủ mọi case kể cả fail.
 
-**Bẫy thường gặp:** golden set toàn case dễ (TA hỏi "case lớp ③ đâu?" là lộ) · chấm "đạt" theo cảm tính giữa chừng (quay lại định nghĩa; định nghĩa sai thì sửa định nghĩa + ghi changelog, đừng chấm bừa) · đổi bar khi thấy điểm thấp (bar đã khoá — phân tích khoảng cách là nội dung slide 4, không phải điều xấu hổ).
+**Lỗi thường gặp:** golden set chỉ toàn case dễ (TA sẽ kiểm tra độ phủ 4 lớp chỗ khó) · chấm "đạt" theo cảm tính giữa chừng (quay lại định nghĩa trong spec; nếu định nghĩa chưa ổn thì sửa định nghĩa và ghi changelog) · đổi quality bar khi thấy kết quả thấp (bar đã chốt — phân tích khoảng cách chính là nội dung của slide 4).
 
 ## 4.2 Đo bằng người — vòng validation *(CP5, trước dry run)*
 
@@ -167,7 +167,7 @@ Trước khi build sâu, dựng nhanh **≥2 phương án khác nhau ở MỘT q
 
 **Scaffold log** (bảng trong `validation/`, mỗi người thử một dòng): `người thử (tên/vai — willing user?) | task | quan sát | quote nguyên văn | mức nghiêm trọng`. Kèm 4 dòng tổng hợp: chủ đề lặp nhiều nhất · 1-2 thay đổi làm trước demo (→ Changelog spec §9) · giữ nguyên có lý do · đưa vào backlog (slide 6).
 
-**"Mọi người đều khen" = phiên test hỏng** — giao lại task khó hơn hoặc đổi người thử.
+Nếu mọi phản hồi đều là lời khen, phiên test chưa đạt — giao lại task khó hơn hoặc đổi người thử.
 
 ## 4.3 Gặp TA ở CP5 cần show
 
@@ -183,9 +183,9 @@ Feedback log ≥5 mẩu có tên người thử · changelog có thay đổi t�
 
 1. **User & Job** *(45")* — job executor + core JTBD một câu + con số pain ("41/200 hội thoại...", "17/25 người khảo sát..."). Tránh: persona chung chung.
 2. **Vì sao chọn tính năng này** *(45")* — bảng impact rút gọn 3 ứng viên + ứng viên loại một dòng lý do. Tránh: trình bày như chỉ có đúng một ý tưởng từ đầu.
-3. **Giải pháp & demo live** *(2')* — lát cắt 1 câu + automation 1 dòng cost-of-error + **live: 1 case chuẩn + 1 case chỗ khó** (case lỗi được xử — khoảnh khắc ăn điểm, đừng giấu). Tránh: 3 case đều happy path; video thay live khi live vẫn chạy được.
-4. **Kết quả đo** *(45")* — % qua golden set đối chiếu **bar đã khoá từ 23:59 N1** + 1 failure đáng kể nhất; chưa đạt bar → phân tích vì sao (trung thực ăn điểm). Tránh: chỉ báo số đẹp, không nói bar.
-5. **User thật nói gì** *(45")* — ≥2 quote nguyên văn từ validation (tên/vai) + thay đổi đã làm. Tránh: "mọi người đều khen".
+3. **Giải pháp & demo live** *(2')* — lát cắt 1 câu + automation 1 dòng cost-of-error + **demo trực tiếp: 1 case chuẩn + 1 case chỗ khó** (case lỗi được xử lý là phần được đánh giá cao — không nên giấu). Tránh: 3 case đều happy path; video thay live khi live vẫn chạy được.
+4. **Kết quả đo** *(45")* — % qua golden set đối chiếu **quality bar đã chốt từ 23:59 N1** + 1 failure đáng kể nhất; chưa đạt thì phân tích nguyên nhân. Tránh: chỉ trình bày số đẹp mà không nêu quality bar đã cam kết.
+5. **User thật nói gì** *(45")* — ≥2 quote nguyên văn từ validation (tên/vai) + thay đổi đã làm. Tránh: chỉ toàn lời khen chung chung.
 6. **Nếu có thêm 1 tuần** *(30")* — 2-3 việc ưu tiên trỏ về feedback/failure chưa xử + một dòng bài học lớn nhất. Tránh: roadmap 10 mục.
 
 Demo round: 5' trình bày + 5' Q&A — **thẻ giám khảo** (chạy 1 case lạ tại chỗ) + **mỗi thành viên nói ≥1 phần**.

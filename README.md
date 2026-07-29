@@ -1,32 +1,43 @@
-# Mini Hackathon AI — Batch 03 · SPEC → Prototype → Demo
+# Mini Hackathon AI — Batch 03
 
-> Không phải cuộc thi code. Là cuộc thi **tư duy sản phẩm AI**.
-> 1,5 ngày · nhóm 4-5 người · zone tối đa 5 nhóm · thi theo lớp.
+**SPEC → Prototype → Demo.** Đây không phải cuộc thi code — đây là cuộc thi **tư duy sản phẩm AI**.
 
-## Bộ tài liệu — đọc theo thứ tự
+- Thời lượng: **1,5 ngày** (một ngày build + một buổi demo)
+- Nhóm: **4-5 người** · zone tối đa 5 nhóm · thi theo lớp
 
-| # | File | Là gì | Dùng khi nào |
-|---|---|---|---|
-| 1 | `01-de-bai.md` | Đề bài 3 hướng + 5 tiêu chí nghiệm thu + ràng buộc | Ngay khi phát đề |
-| 2 | `02-guide.md` | Hướng dẫn xuyên suốt 5 giai đoạn (khám phá → spec → build → đo & validate → demo) | Suốt sự kiện — đứng ở giai đoạn nào đọc mục đó |
-| 3 | `03-template-ai-spec.md` | Template AI Spec — deliverable trung tâm | Từ CP1, chốt 23:59 N1 |
-| 4 | `04-rubric.md` | Rubric chấm bài + checklist xác minh từng mốc | Đọc NGAY từ đầu — biết trước mình được chấm bằng gì |
-| — | `data/` | Data thật đã ẩn danh (chatlog VLearn tutor...) | Mining evidence + golden set |
-| — | `tham-khao/` | JTBD Playbook (PDF) + worksheet JTBD đầy đủ | Khi muốn đào sâu |
+## Bắt đầu từ đâu?
 
-## Sáu mốc (chi tiết từng mốc: `04-rubric.md`)
+1. Đọc **`01-de-bai.md`** để chọn hướng và hiểu tiêu chí.
+2. Mở **`02-guide.md`** — hướng dẫn từng giai đoạn, đứng ở đâu đọc mục đó.
+3. Viết spec theo **`03-template-ai-spec.md`** — deliverable trung tâm của cả sự kiện.
+4. Đọc **`04-rubric.md`** ngay từ đầu — biết trước bài được chấm theo tiêu chí nào.
+
+| File / thư mục | Nội dung |
+|---|---|
+| `01-de-bai.md` | Đề bài 3 hướng · 5 tiêu chí nghiệm thu · ràng buộc chung |
+| `02-guide.md` | Hướng dẫn 5 giai đoạn: khám phá → spec → build → đo & validate → demo |
+| `03-template-ai-spec.md` | Template AI Spec (nộp 23:59 ngày 1) |
+| `04-rubric.md` | Rubric 100 điểm + checklist xác minh 6 mốc |
+| `data/` | Dữ liệu thật đã ẩn danh (chatlog VLearn tutor...) — dùng để tìm bằng chứng và xây golden set |
+| `tham-khao/` | JTBD Playbook (PDF) + worksheet JTBD đầy đủ — đọc khi muốn đào sâu |
+
+## Lịch — 6 mốc
 
 | Mốc | Khoá 3 | Khoá 4 |
 |---|---|---|
-| Khai mạc + phát đề | 09:00 N1 | 14:00 N1 |
-| CP1 · Chốt Canvas | 10:00 N1 | 15:00 N1 |
-| CP2 · Show được thứ bấm được | 12:00 N1 | 17:00 N1 |
-| CP3 · AI chạy thật + đo lượt đầu | 16:00 N1 | 10:30 N2 |
-| CP4 · Chốt tiến độ (spec — hạn cứng 23:59 N1) | 17:30 N1 | 12:00 N2 |
-| CP5 · Xác minh + validation + dry run | 09:00 N2 | 14:00 N2 |
-| CP6 · Demo | 10:00 N2 | 15:00 N2 |
+| Khai mạc + phát đề | 09:00 ngày 1 | 14:00 ngày 1 |
+| CP1 · Chốt Canvas | 10:00 ngày 1 | 15:00 ngày 1 |
+| CP2 · Show được thứ bấm được | 12:00 ngày 1 | 17:00 ngày 1 |
+| CP3 · AI chạy thật + đo lượt đầu | 16:00 ngày 1 | 10:30 ngày 2 |
+| CP4 · Chốt tiến độ — spec nộp hạn cứng **23:59 ngày 1** | 17:30 ngày 1 | 12:00 ngày 2 |
+| CP5 · Xác minh + validation + dry run | 09:00 ngày 2 | 14:00 ngày 2 |
+| CP6 · Demo | 10:00 ngày 2 | 15:00 ngày 2 |
 
-## Nộp bài — 1 repo nhóm, spec chốt 23:59 N1, bản cuối trước CP6
+Mỗi mốc cần show gì và được xác minh thế nào: xem bảng trong `04-rubric.md`.
+
+## Nộp bài
+
+Một repo nhóm, cấu trúc như sau. Spec chốt lúc 23:59 ngày 1; bản hoàn chỉnh trước CP6.
 
 ```
 repo/
@@ -39,27 +50,29 @@ repo/
 └── reflection/        ← mỗi người 1 file
 ```
 
-## Chấm điểm — minh bạch từ đầu
+## Chấm điểm
 
-Bài nộp được chấm bằng **rubric baseline 100 điểm** (chi tiết từng ý điểm: `04-rubric.md`) — chấm sau sự kiện, trên artifact trong repo, mỗi con điểm trỏ về một file cụ thể, **phúc khảo được**:
+Bài nộp được chấm theo **rubric 100 điểm** — chấm sau sự kiện, dựa trên artifact trong repo; mỗi con điểm trỏ về một file cụ thể nên có thể phúc khảo. Chi tiết từng ý điểm: `04-rubric.md`.
 
-| Khối | Điểm | Chấm từ |
-|---|---|---|
-| R1 · Bằng chứng & impact (evidence chuẩn A/B có log, bảng impact ≥3 ứng viên) | 20 | spec §1-§2 + log |
-| R2 · Lát cắt & thiết kế (1 câu chuẩn, non-goals, automation theo cost-of-error, ≥4 nguyên tắc HAX/PAIR có trỏ chỗ áp) | 20 | spec §4 |
-| R3 · Chỗ khó & kịch bản (4 lớp taxonomy, ≥8 kịch bản, 4 đường đi trải nghiệm) | 15 | spec §5-§6 |
-| R4 · Kiểm thử (golden set ≥10 tự làm, định nghĩa đo được, bar khoá trước, kết quả trung thực) | 20 | spec §7 + eval/ |
-| R5 · Prototype (end-to-end, ≥1 AI call thật, mock khai rõ) | 10 | codebase/ + demo |
-| R6 · Validation (≥5 feedback có tên + thay đổi từ feedback) | 10 | validation/ + changelog |
-| R7 · Quy trình & repo | 5 | repo |
+| Khối | Điểm |
+|---|---|
+| R1 · Bằng chứng & impact | 20 |
+| R2 · Lát cắt & thiết kế | 20 |
+| R3 · Chỗ khó & kịch bản rủi ro | 15 |
+| R4 · Kiểm thử (golden set + quality bar) | 20 |
+| R5 · Prototype chạy được | 10 |
+| R6 · Validation với user | 10 |
+| R7 · Quy trình & repo | 5 |
 
-Reflection cá nhân chấm riêng theo rubric của khoá. Điểm vòng demo, chấm chéo trong zone và thưởng thêm (nếu có) thuộc thể lệ sự kiện công bố lúc khai mạc — không thuộc rubric baseline này.
+Ba điều nên biết trước khi làm:
 
-**Nguyên tắc chấm quan trọng nhất:** chấm *chuỗi quyết định có bằng chứng*, không chấm độ hoành tráng. **Kết quả đo trung thực — kể cả không đạt bar tự đặt — ăn trọn điểm; che giấu hoặc sửa số liệu mất hết.**
+- Điểm dựa trên **chuỗi quyết định và bằng chứng**, không dựa trên mức độ hoành tráng của sản phẩm.
+- Kết quả đo **ghi nhận trung thực** — kể cả khi không đạt mục tiêu nhóm tự đặt — vẫn được tính đủ điểm. Số liệu bị chỉnh sửa hoặc che giấu sẽ không được tính.
+- Reflection cá nhân chấm riêng theo rubric của khoá. Điểm vòng demo, chấm chéo trong zone và thưởng thêm (nếu có) theo thể lệ công bố lúc khai mạc.
 
-## Luật xuyên suốt
+## Luật chung
 
-- **Prototype 3 mức Sketch / Mock / Working — mức nào cũng bắt buộc ≥1 lời gọi AI chạy thật.**
-- Vibe-coding rule: không giải thích được phần có tên mình = 0 điểm phần đó (kiểm tại CP5).
-- Quality bar khoá tại spec.md 23:59 N1 — không hạ bar sau đó.
-- Chỉ dùng data trong `data/` hoặc data giả tự sinh; không data thật của người thật; không commit API key; không đổ nguyên data pack lên repo public (trích ngắn minh hoạ được).
+1. Prototype có 3 mức **Sketch / Mock / Working** — mức nào cũng bắt buộc **≥1 lời gọi AI chạy thật**.
+2. **Vibe-coding rule:** dùng AI để build thoải mái, nhưng không giải thích được phần có tên mình thì phần đó 0 điểm (kiểm tra tại CP5).
+3. **Quality bar** chốt tại spec.md 23:59 ngày 1 và giữ nguyên sau đó.
+4. Chỉ dùng dữ liệu trong `data/` hoặc dữ liệu giả tự sinh — không dùng dữ liệu thật của người thật. Không commit API key. Không đưa nguyên data pack lên repo (trích ngắn để minh hoạ được).
