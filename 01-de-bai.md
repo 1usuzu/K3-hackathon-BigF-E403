@@ -33,7 +33,7 @@ Chatlog VLearn tutor × học viên đã ẩn danh + **6 transcript bài giảng
    - ② **Mơ hồ / thiếu thông tin** — input không đủ chắc: hỏi lại, đoán có báo, hay từ chối?
    - ③ **Ngoài phạm vi / thẩm quyền** — user đòi thứ không được phép làm, từ chối sao cho vẫn hữu ích?
    - ④ **Đặc thù domain** — sai cái gì thì user mất điểm, mất niềm tin, học sai kiến thức ngay?
-3. Chỉ dùng data trong `data/` hoặc data giả tự sinh — không data thật của người thật ngoài pack đã rà.
+3. Chỉ dùng data trong `data/` hoặc data giả tự sinh — không data thật của người thật ngoài pack đã rà. **Data được cấp thuộc quy định bảo mật** (xem README mục "Bảo mật dữ liệu được cung cấp") — không chia sẻ ra ngoài khoá, không commit vào repo nộp bài.
 
 ## 5 tiêu chí nghiệm thu bài toán *(áp cho MỌI hướng — kể cả tối ưu tính năng có sẵn)*
 

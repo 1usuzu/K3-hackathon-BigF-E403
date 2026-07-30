@@ -15,6 +15,6 @@ Sáu file transcript ASR thô trong `transcript_2/` đã được làm sạch: s
 
 Tổng: ~700 đoạn có mã trích dẫn `[Txx-NNN]` · ~465k ký tự sạch (từ ~854k thô, giữ ~54% — phần giảng giữ 60-80%, phần hoạt động lớp rút thành ghi chú).
 
-## Luật dùng
+## Luật dùng & bảo mật
 
-Như data pack chung: dùng để mining evidence, xây golden set, làm context cho prototype. Không đưa nguyên file lên repo public của nhóm — trích ngắn để minh hoạ được. Không cố suy ngược danh tính từ nhãn [học viên].
+Theo quy định chung của data pack (xem `data/vlearn-pack/README.md` và README gốc mục "Bảo mật dữ liệu được cung cấp"): chỉ dùng trong phạm vi hackathon · không chia sẻ ra ngoài khoá · không commit nguyên file vào repo nộp bài (trích dẫn bằng mã đoạn `[Txx-NNN]`) · không cố suy ngược danh tính từ nhãn [học viên].
