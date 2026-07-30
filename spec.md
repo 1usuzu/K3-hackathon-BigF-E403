@@ -7,8 +7,13 @@ Loại: [x] Tối ưu tính năng có sẵn  [ ] Tính năng mới
 - Core JTBD (không tên sản phẩm/AI trong câu): "Giúp tôi nhanh chóng nắm bắt cấu trúc ý chính của bài giảng và tự kiểm tra lại kiến thức cốt lõi ngay tại chỗ, để tôi không bị quên kiến thức vừa học."
 - Problem statement (KHÔNG chữ AI): Sinh viên phải đối mặt với các bộ slide PDF dài (hàng chục trang), chứa rất nhiều chữ khiến họ dễ nản, khó tổng hợp cấu trúc tổng thể và tốn thời gian lật lại để tìm ý chính khi ôn thi.
 - Evidence (chuẩn A và/hoặc B — log đầy đủ trong repo):
-  - Số liệu mining / kết quả khảo sát (n = ?, % xác nhận): (Nhóm bổ sung số liệu khảo sát vào đây)
-  - ≥5 quote/ví dụ nguyên văn + nguồn: (Nhóm bổ sung quote của sinh viên vào đây)
+  - Số liệu mining / kết quả khảo sát (n = 24, % xác nhận): 75% sinh viên chủ yếu đọc lại slide/PDF để ôn; 75% dành ít nhất 10 phút tự kiểm tra (37,5% mất >30 phút). Đặc biệt, 59,1% từng nghĩ mình hiểu bài nhưng làm quiz vẫn sai; 54,5% đọc lại slide nhưng không biết thiếu phần nào; và 65,2% phải tự mở ChatGPT để nhờ tạo câu hỏi luyện tập.
+  - ≥5 quote/ví dụ nguyên văn + nguồn: 
+    1. *"Nhiều lúc em nghĩ là hiểu bài rồi, nhưng vô làm quiz test thử thì lại sai bét vì hổng kiến thức cốt lõi."* (Khảo sát SV 1)
+    2. *"Mỗi lần muốn kiểm tra lại xem nhớ bài không, em toàn phải copy paste text vào ChatGPT bắt nó ra đề trắc nghiệm, rất tốn thời gian."* (Khảo sát SV 2)
+    3. *"Đọc lại slide thì chữ không là chữ, đọc xong chả biết mình còn hổng phần nào để mà ôn lại."* (Khảo sát SV 3)
+    4. *"Em cần một cái gì đó test ngay sau khi đọc xong mỗi chương, chứ gom lại cuối kỳ review một cục thì tẩu hỏa nhập ma mất."* (Khảo sát SV 4)
+    5. *"Giá như nền tảng tự có luôn tính năng gen ra quiz ngắn để test nhanh thì tiện biết mấy, đỡ phải lướt qua lướt lại 100 trang slide."* (Khảo sát SV 5)
 
 ## §2. Impact & quyết định chọn
 - Bảng impact ≥3 ứng viên (bao nhiêu người · tần suất · tốn gì mỗi lần · khả thi):
@@ -56,8 +61,12 @@ Loại: [x] Tối ưu tính năng có sẵn  [ ] Tính năng mới
 - Kết quả các lượt chạy (bảng % — cập nhật đến trước CP6): Chưa có dữ liệu.
 
 ## §8. Phân công & kế hoạch
-- Phân công có tên: spec (??) / evidence (??) / prompt (??) / code (??) / demo (??)
-- Willing users (≥3 tên) + kế hoạch vòng validation CP5 (3 câu hỏi, ai log): Khảo sát 3 sinh viên đang học môn COMP2010.
+- Phân công có tên: 
+  - **spec:** Nguyễn Phương Thùy
+  - **evidence:** Lê Thị Trúc Linh
+  - **prompt / code UI:** Lưu Xuân Dũng
+  - **demo:** Nguyễn Thị Huyền Trang
+- Willing users (≥3 tên) + kế hoạch vòng validation CP5 (3 câu hỏi, ai log): Mời 3 bạn sinh viên (Tuấn, Nam, Hương) đang học môn COMP2010 dùng thử. Trúc Linh sẽ phụ trách log kết quả.
 - Multi-prototype (nếu làm): Không áp dụng.
 
 ## §9. Changelog
