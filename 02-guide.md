@@ -30,7 +30,7 @@
 
 ## 1.3 Cách mining data & thu bằng chứng
 
-1. **Đọc 30-50 mẫu trước, đếm sau** — đọc chatlog/log Trợ lý Học viên để biết *loại* pattern tồn tại (tin cụt "hii/hả"? tutor trả template dài? câu hỏi logistics? cite sai trang? câu hỏi lặp?), rồi mới định nghĩa tiêu chí đếm.
+1. **Đọc 30-50 mẫu trước, đếm sau** — đọc chatlog VLearn / tin nhắn thật trong Discord khoá để biết *loại* pattern tồn tại (tin cụt "hii/hả"? tutor trả template dài? câu hỏi logistics? cite sai trang? câu hỏi lặp?), rồi mới định nghĩa tiêu chí đếm.
 2. **Đếm được mới là bằng chứng**: "41/200 hội thoại mở đầu bằng tin không-phải-câu-hỏi" ✓ · "nhiều bạn nhắn linh tinh" ✗.
 3. **Ghi phương pháp đếm** (đếm gì, trên bao nhiêu mẫu, quy tắc xếp loại) — người khác kiểm lại được mới tính. Giữ ≥5 ví dụ nguyên văn.
 4. Khảo sát/phỏng vấn: hỏi về **lần gần nhất** ("lần gần nhất bạn muốn xem lại một đoạn bài giảng, bạn làm gì? mất bao lâu?") — tránh hỏi ý kiến kiểu "bạn có cần tính năng X không?" — hầu như ai cũng trả lời có, dữ liệu thu được không dùng được. **Ghi log toàn bộ: câu đã hỏi, từng câu trả lời nguyên văn, và ai trả lời.** Không có log thì không được tính là bằng chứng.
