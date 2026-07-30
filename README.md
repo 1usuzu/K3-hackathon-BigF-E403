@@ -17,7 +17,7 @@
 | `01-de-bai.md` | Đề bài 3 hướng · 5 tiêu chí nghiệm thu · ràng buộc chung |
 | `02-guide.md` | Hướng dẫn 5 giai đoạn: khám phá → spec → build → đo & validate → demo |
 | `03-template-ai-spec.md` | Template AI Spec (nộp 23:59 ngày 1) |
-| `04-rubric.md` | Rubric 100 điểm + checklist xác minh 6 mốc |
+| `04-rubric.md` | Rubric 100 điểm (25 nộp checkpoint + 75 chấm bài) + checklist xác minh 6 mốc |
 | `data/` | Dữ liệu thật đã ẩn danh: chatlog VLearn tutor + 6 transcript bài giảng bản sạch — dùng để tìm bằng chứng và xây golden set |
 | `tham-khao/` | JTBD Playbook (PDF) + worksheet JTBD đầy đủ — đọc khi muốn đào sâu |
 
@@ -52,17 +52,21 @@ repo/
 
 ## Chấm điểm
 
-Bài nộp được chấm theo **rubric 100 điểm** — chấm sau sự kiện, dựa trên artifact trong repo; mỗi con điểm trỏ về một file cụ thể nên có thể phúc khảo. Chi tiết từng ý điểm: `04-rubric.md`.
+Tổng **100 điểm = 25 điểm nộp checkpoint + 75 điểm chấm bài nộp**. Chi tiết từng ý điểm: `04-rubric.md`.
 
-| Khối | Điểm |
-|---|---|
-| R1 · Bằng chứng & impact | 20 |
-| R2 · Lát cắt & thiết kế | 20 |
-| R3 · Chỗ khó & kịch bản rủi ro | 15 |
-| R4 · Kiểm thử (golden set + quality bar) | 20 |
-| R5 · Prototype chạy được | 10 |
-| R6 · Validation với user | 10 |
-| R7 · Quy trình & repo | 5 |
+**25 điểm nộp — mỗi checkpoint 5 điểm (CP1-CP5):** nộp đúng hạn → 5 điểm · nộp muộn → 0 điểm cho mốc đó. Mỗi thành viên nộp riêng, cả nhóm dùng chung một link repo.
+
+**75 điểm chấm — trên artifact trong repo, mỗi con điểm trỏ về một file:**
+
+| Khối | Điểm | Chấm trên file nào |
+|---|---|---|
+| R1 · Bằng chứng & impact | 15 | `spec.md` §1-§2 + log khảo sát/mining |
+| R2 · Lát cắt & thiết kế | 15 | `spec.md` §4 |
+| R3 · Chỗ khó & kịch bản rủi ro | 11 | `spec.md` §5-§6 |
+| R4 · Kiểm thử | 15 | `spec.md` §7 + `eval/` |
+| R5 · Prototype chạy được | 8 | `codebase/` + demo |
+| R6 · Validation với user | 8 | `validation/` |
+| R7 · Quy trình & repo | 3 | cấu trúc repo |
 
 Ba điều nên biết trước khi làm:
 
