@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,22 +8,26 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';</script>
 </head>
+
 <body>
     <!-- VLEARN HEADER -->
     <header class="vlearn-header">
         <div class="header-left">
             <button class="icon-btn btn-back"><i class="fas fa-chevron-left"></i></button>
             <div class="logo">
-                <i class="fab fa-vuejs" style="color:#e11d48; font-size: 20px;"></i> 
+                <i class="fab fa-vuejs" style="color:#e11d48; font-size: 20px;"></i>
                 <span style="font-weight:700; color:#1e293b; font-size: 18px; margin-left: 4px;">VLearn</span>
             </div>
             <div class="header-divider"></div>
             <div class="document-info">
                 <i class="far fa-file-pdf" style="color: #64748b; font-size: 18px;"></i>
                 <div class="doc-text">
-                    <div class="doc-title">d2-slide-hackathon.pdf <i class="fas fa-check-circle" style="color: #2563eb; font-size: 12px; margin-left: 4px;"></i></div>
-                    <div class="doc-subtitle">COMP2010 · Lecture_material_ms2039d0_hnxpxy</div>
+                    <div class="doc-title" id="doc-title-header">VLearn AI StudyKit <i class="fas fa-graduation-cap"
+                            style="color:#6366f1; font-size:13px; margin-left:4px;"></i></div>
+                    <div class="doc-subtitle">Chọn slide từ danh sách để bắt đầu</div>
                 </div>
             </div>
         </div>
@@ -36,70 +41,98 @@
     <div class="vlearn-layout">
         <!-- VLEARN SIDEBAR -->
         <aside id="vlearn-sidebar" class="vlearn-sidebar">
-            <div class="sidebar-header">
-                <div class="sidebar-icon-wrap"><i class="fas fa-book-open"></i></div>
-                <div class="sidebar-title">
-                    <h4>Học liệu môn học</h4>
-                    <p>Chương, slide và tài liệu đã upload</p>
-                </div>
-            </div>
-            <div class="sidebar-content">
-                <!-- Day 01 -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <i class="far fa-play-circle" style="color: #64748b; font-size: 18px;"></i>
-                        <div class="acc-text">
-                            <strong>Day01</strong>
-                            <p>2 TÀI LIỆU - PUBLISHED</p>
-                        </div>
-                        <i class="fas fa-chevron-down acc-icon"></i>
+
+            <!-- ═══════════════════════════════════════════════════
+            <!-- SECTION 1: GIÁO VIÊN - UPLOAD TÀI LIỆU            -->
+            <!-- ═══════════════════════════════════════════════════ -->
+            <div class="sidebar-section teacher-section">
+                <div class="sidebar-section-header">
+                    <div class="section-icon teacher-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
                     </div>
-                </div>
-                
-                <!-- Day 02 (Active) -->
-                <div class="accordion-item active">
-                    <div class="accordion-header">
-                        <i class="far fa-play-circle" style="color: #2563eb; font-size: 18px;"></i>
-                        <div class="acc-text">
-                            <strong>Day02</strong>
-                            <p>1 TÀI LIỆU - PUBLISHED</p>
-                        </div>
-                        <span class="badge-studying">STUDYING</span>
-                        <i class="fas fa-chevron-up acc-icon"></i>
-                    </div>
-                    <div class="accordion-body">
-                        <div class="doc-item active">
-                            <i class="far fa-play-circle"></i>
-                            <div class="doc-item-text">
-                                <strong>d2-slide-hackathon.pdf</strong>
-                                <p>83 trang</p>
-                            </div>
-                            <i class="far fa-check-circle" style="color: #2563eb;"></i>
-                        </div>
+                    <div>
+                        <div class="section-title">Giáo viên</div>
+                        <div class="section-subtitle">Upload slide & AI sinh nội dung</div>
                     </div>
                 </div>
 
-                <!-- Day 03 -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <i class="far fa-play-circle" style="color: #64748b; font-size: 18px;"></i>
-                        <div class="acc-text">
-                            <strong>Day03</strong>
-                            <p>2 TÀI LIỆU - PUBLISHED</p>
+                <div class="teacher-upload-area">
+                    <label class="upload-field-label">Chọn Day để upload</label>
+                    <select id="teacher-day-select" class="teacher-select">
+                        <option value="day01">📅 Day 01 – Intro to AI</option>
+                        <option value="day02" selected>📅 Day 02 – Problem Framing</option>
+                        <option value="day03">📅 Day 03 – AI Prototype</option>
+                        <option value="day04">📅 Day 04 – Evaluation</option>
+                        <option value="__new__" style="color:#2563eb; font-weight:600;">➕ Thêm ngày mới...</option>
+                    </select>
+
+                    <!-- New day input row (hidden by default) -->
+                    <div id="new-day-input-row" style="display:none; margin-bottom:8px;">
+                        <div style="display:flex; gap:6px; align-items:center;">
+                            <input id="new-day-name-input" type="text" placeholder="Ví dụ: Day 05 – AI Deployment"
+                                style="flex:1; padding:7px 10px; font-size:12px; border-radius:6px; border:1px solid #2563eb; outline:none; font-family:inherit; color:#1e293b;" />
+                            <button id="btn-add-new-day" title="Thêm ngày học mới"
+                                style="padding:7px 12px; background:#2563eb; color:white; border:none; border-radius:6px; font-size:12px; font-weight:600; cursor:pointer; white-space:nowrap; transition:background 0.2s;">
+                                <i class="fas fa-plus"></i> Thêm
+                            </button>
                         </div>
-                        <i class="fas fa-chevron-down acc-icon"></i>
+                        <div style="font-size:10px; color:#64748b; margin-top:4px; padding-left:2px;">
+                            <i class="fas fa-info-circle"></i> Nhập tên ngày học rồi bấm Thêm để tạo mới
+                        </div>
+                    </div>
+
+                    <div id="teacher-upload-dropzone" class="upload-dropzone">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Kéo thả file hoặc</span>
+                        <label for="teacher-file-input" class="upload-browse-btn">Chọn file</label>
+                        <span class="upload-hint">PDF, PPTX, DOCX</span>
+                    </div>
+                    <input type="file" id="teacher-file-input" accept=".pdf,.pptx,.docx,.txt" style="display:none;" />
+
+                    <div id="teacher-upload-status" class="upload-status hidden">
+                        <div class="upload-status-row">
+                            <i class="fas fa-spinner fa-spin" style="color:#6366f1;"></i>
+                            <span id="teacher-upload-status-text">Đang phân tích slide...</span>
+                        </div>
+                        <div class="upload-progress-bar">
+                            <div id="teacher-upload-progress" class="upload-progress-fill" style="width:0%"></div>
+                        </div>
                     </div>
                 </div>
-                <!-- Day 04 -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <i class="far fa-play-circle" style="color: #64748b; font-size: 18px;"></i>
-                        <div class="acc-text">
-                            <strong>Day04</strong>
-                            <p>3 TÀI LIỆU - PUBLISHED</p>
-                        </div>
-                        <i class="fas fa-chevron-down acc-icon"></i>
+            </div>
+
+            <div class="sidebar-divider">
+                <span>HỌC LIỆU</span>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════════ -->
+            <!-- SECTION 2: HỌC VIÊN - DANH SÁCH SLIDE THEO DAY   -->
+            <!-- ═══════════════════════════════════════════════════ -->
+            <div class="sidebar-section student-section">
+                <div class="sidebar-section-header">
+                    <div class="section-icon student-icon">
+                        <i class="fas fa-user-graduate"></i>
                     </div>
+                    <div>
+                        <div class="section-title">Học viên</div>
+                        <div class="section-subtitle">Chọn slide để học</div>
+                    </div>
+                </div>
+
+                <!-- Progress Legend -->
+                <div class="progress-legend">
+                    <span class="legend-item"><span class="legend-dot gray"></span>Chưa học</span>
+                    <span class="legend-item"><span class="legend-dot yellow"></span>Đang học</span>
+                    <span class="legend-item"><span class="legend-dot green"></span>Đã thuộc</span>
+                    <span class="legend-item"><span class="legend-dot red"></span>Cần ôn</span>
+                </div>
+
+                <!-- Hidden input for per-day file upload -->
+                <input type="file" id="day-file-upload-input" accept=".pdf,.txt,.md,.json,.png,.jpg"
+                    style="display: none;" />
+
+                <div class="student-day-list" id="sidebar-accordion-container">
+                    <!-- Rendered dynamically by script.js -->
                 </div>
             </div>
         </aside>
@@ -138,10 +171,41 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="pdf-viewer-area">
-                    <div class="pdf-page-container">
-                        <iframe id="main-pdf-iframe" src="../data/vlearn-pack/slides/d2-slide-hackathon.pdf#page=1&toolbar=0&navpanes=0&scrollbar=0" width="100%" height="100%" frameborder="0"></iframe>
+                    <div class="pdf-page-container" style="position:relative;">
+                        <iframe id="main-pdf-iframe" src="" width="100%" height="100%" frameborder="0"></iframe>
+                        <!-- Welcome placeholder shown until student picks a slide -->
+                        <div id="slide-welcome-placeholder"
+                            style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f8fafc;gap:16px;">
+                            <div
+                                style="width:72px;height:72px;background:linear-gradient(135deg,#ede9fe,#dbeafe);border-radius:20px;display:flex;align-items:center;justify-content:center;">
+                                <i class="fas fa-book-open" style="font-size:32px;color:#6366f1;"></i>
+                            </div>
+                            <div style="text-align:center;">
+                                <div style="font-size:18px;font-weight:700;color:#1e293b;margin-bottom:6px;">Chọn slide
+                                    để bắt đầu học</div>
+                                <div style="font-size:13px;color:#64748b;max-width:320px;line-height:1.6;">Chọn một
+                                    slide từ danh sách bên trái để xem bài giảng và sử dụng AI StudyKit.</div>
+                            </div>
+                            <div style="display:flex;gap:12px;margin-top:4px;">
+                                <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#94a3b8;">
+                                    <span
+                                        style="width:8px;height:8px;border-radius:50%;background:#eab308;display:inline-block;"></span>
+                                    Đang học
+                                </div>
+                                <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#94a3b8;">
+                                    <span
+                                        style="width:8px;height:8px;border-radius:50%;background:#22c55e;display:inline-block;"></span>
+                                    Đã thuộc
+                                </div>
+                                <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#94a3b8;">
+                                    <span
+                                        style="width:8px;height:8px;border-radius:50%;background:#ef4444;display:inline-block;"></span>
+                                    Cần ôn lại
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -158,66 +222,116 @@
             <div id="after-state" class="state-container">
                 <div class="dashboard-header">
                     <h2>TỔNG KẾT & ÔN TẬP (AI-POWERED)</h2>
-                    <button id="btn-back-to-reading" class="btn-sm btn-outline"><i class="fas fa-arrow-left"></i> Trở về bài giảng</button>
+                    <button id="btn-back-to-reading" class="btn-sm btn-outline"><i class="fas fa-arrow-left"></i> Trở về
+                        bài giảng</button>
                 </div>
-                
-                <div class="dashboard-grid">
-                    <!-- Bảng Mindmap (Trái) -->
-                    <div class="left-column">
+
+                <div class="study-kit-grid">
+                    <!-- 1. CENTER COLUMN: INTERACTIVE MINDMAP (EXPANDED FULL WIDTH) -->
+                    <div class="sk-col-center">
                         <div class="panel">
                             <div class="panel-header">
-                                <h3><i class="fas fa-sitemap"></i> Mindmap Bài giảng</h3>
-                                <button class="icon-btn"><i class="fas fa-expand"></i></button>
+                                <h3><i class="fas fa-sitemap" style="color: #6366f1;"></i> Mindmap Bài giảng</h3>
+                                <div class="node-legend" style="display: flex; gap: 8px; font-size: 11px;">
+                                    <span style="display: flex; align-items: center; gap: 3px;"><i class="fas fa-circle"
+                                            style="color: #cbd5e1;"></i> Chưa học</span>
+                                    <span style="display: flex; align-items: center; gap: 3px;"><i class="fas fa-circle"
+                                            style="color: #eab308;"></i> Đã xem thẻ</span>
+                                    <span style="display: flex; align-items: center; gap: 3px;"><i class="fas fa-circle"
+                                            style="color: #22c55e;"></i> Đã thuộc</span>
+                                    <span style="display: flex; align-items: center; gap: 3px;"><i class="fas fa-circle"
+                                            style="color: #ef4444;"></i> Cần ôn lại</span>
+                                </div>
                             </div>
                             <div class="panel-body mindmap-container">
                                 <div class="tree">
                                     <ul>
                                         <li>
-                                            <div class="node root-node" data-slide="Toàn bộ bài">XÁC ĐỊNH BÀI TOÁN AI</div>
+                                            <div id="node-root" class="node root-node status-gray"
+                                                data-concept="Xác định bài toán AI" data-slide="Toàn bộ bài">XÁC ĐỊNH
+                                                BÀI TOÁN AI</div>
                                             <ul>
                                                 <li>
-                                                    <div class="node" data-slide="Slide 5-15">Phần 1:<br>User & Job (JTBD)</div>
-                                                    <ul>
-                                                        <li><div class="node" data-slide="Slide 8">Core JTBD</div></li>
-                                                        <li><div class="node" data-slide="Slide 12">Alternatives</div></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <div class="node" data-slide="Slide 16-25">Phần 2:<br>5 Tiêu chí nghiệm thu</div>
-                                                    <ul>
-                                                        <li><div class="node" data-slide="Slide 18">Lát cắt 1 câu</div></li>
-                                                        <li><div class="node" data-slide="Slide 22">Bằng chứng</div></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <div class="node" data-slide="Slide 26-40">Phần 3:<br>Các lớp rủi ro AI</div>
+                                                    <div id="node-jtbd" class="node status-gray"
+                                                        data-concept="User & Job (JTBD)" data-slide="Slide 5-15">Phần
+                                                        1:<br>User & Job (JTBD)</div>
                                                     <ul>
                                                         <li>
-                                                            <div class="node" data-slide="Slide 28">Cost of error</div>
+                                                            <div id="node-core-jtbd" class="node status-gray"
+                                                                data-concept="Core JTBD" data-slide="Slide 8">Core JTBD
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div id="node-alt" class="node status-gray"
+                                                                data-concept="Alternatives" data-slide="Slide 12">
+                                                                Alternatives</div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div id="node-criteria" class="node status-gray"
+                                                        data-concept="5 Tiêu chí nghiệm thu" data-slide="Slide 16-25">
+                                                        Phần 2:<br>5 Tiêu chí nghiệm thu</div>
+                                                    <ul>
+                                                        <li>
+                                                            <div id="node-one-cut" class="node status-gray"
+                                                                data-concept="Lát cắt 1 câu" data-slide="Slide 18">Lát
+                                                                cắt 1 câu</div>
+                                                        </li>
+                                                        <li>
+                                                            <div id="node-evidence" class="node status-gray"
+                                                                data-concept="Bằng chứng" data-slide="Slide 22">Bằng
+                                                                chứng</div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div id="node-risk" class="node status-gray"
+                                                        data-concept="Cost of Error & Rủi ro" data-slide="Slide 26-40">
+                                                        Phần 3:<br>Các lớp rủi ro AI</div>
+                                                    <ul>
+                                                        <li>
+                                                            <div id="node-cost-error" class="node status-gray"
+                                                                data-concept="Cost of error" data-slide="Slide 28">Cost
+                                                                of error</div>
                                                             <ul>
-                                                                <li><div class="node" data-slide="Slide 30">Automate</div></li>
-                                                                <li><div class="node" data-slide="Slide 32">Augment</div></li>
+                                                                <li>
+                                                                    <div id="node-automate" class="node status-gray"
+                                                                        data-concept="Automate" data-slide="Slide 30">
+                                                                        Automate</div>
+                                                                </li>
+                                                                <li>
+                                                                    <div id="node-augment" class="node status-gray"
+                                                                        data-concept="Augment" data-slide="Slide 32">
+                                                                        Augment</div>
+                                                                </li>
                                                             </ul>
                                                         </li>
-                                                        <li><div class="node" data-slide="Slide 38">4 Lớp chỗ khó</div></li>
                                                     </ul>
                                                 </li>
                                             </ul>
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- Popover -->
+
+                                <!-- NODE INTERACTIVE POPOVER -->
                                 <div id="node-popover" class="popover hidden">
                                     <div class="popover-content">
                                         <div class="popover-top">
-                                            <span class="slide-ref"><i class="fas fa-file-pdf"></i> Nguồn: <strong id="popover-slide-num">Slide X</strong></span>
+                                            <span class="slide-ref"><i class="fas fa-file-pdf"></i> Nguồn: <strong
+                                                    id="popover-slide-num">Slide X</strong></span>
                                         </div>
-                                        <div class="popover-actions mt-8">
-                                            <button id="btn-view-slide" class="btn-sm btn-secondary">
-                                                <i class="fas fa-eye"></i> Xem Slide
+                                        <div class="popover-actions mt-8"
+                                            style="display: flex; flex-direction: column; gap: 6px;">
+                                            <button id="btn-view-slide" class="btn-sm btn-secondary full-width">
+                                                <i class="fas fa-eye"></i> View Slides
                                             </button>
-                                            <button id="btn-quick-flashcard" class="btn-sm btn-outline">
-                                                <i class="fas fa-bolt"></i> Tạo Flashcard
+                                            <button id="btn-quick-flashcard" class="btn-sm btn-outline full-width"
+                                                style="border-color: #eab308; color: #854d0e;">
+                                                <i class="fas fa-layer-group"></i> Flashcards
+                                            </button>
+                                            <button id="btn-take-quiz" class="btn-sm btn-primary full-width">
+                                                <i class="fas fa-pen-to-square"></i> Take Quiz
                                             </button>
                                         </div>
                                     </div>
@@ -227,77 +341,128 @@
                         </div>
                     </div>
 
-                    <!-- Bảng Flashcard & Lịch sử (Phải) -->
-                    <div class="right-column">
-                        <div class="panel mb-16 flashcard-panel">
-                            <div class="panel-header">
-                                <h3><i class="fas fa-clone"></i> Ôn tập Flashcard</h3>
+                    <!-- 2. RIGHT COLUMN: FLASHCARDS & QUIZ PANEL -->
+                    <div class="sk-col-right">
+                        <div class="panel">
+                            <!-- Tab Switcher -->
+                            <div class="tab-switcher">
+                                <button id="tab-flashcards" class="tab-btn active"><i class="fas fa-clone"></i>
+                                    Flashcards</button>
+                                <button id="tab-quiz" class="tab-btn"><i class="fas fa-clipboard-question"></i> Take
+                                    Quiz</button>
                             </div>
-                            <div class="panel-body" style="display: flex; flex-direction: column;">
+
+                            <!-- Concept Context Banner (shown when a node is selected) -->
+                            <div id="concept-context-banner"
+                                style="display:none; align-items:center; justify-content:space-between; background:linear-gradient(90deg,#eff6ff,#f0fdf4); border-left:3px solid #2563eb; padding:6px 10px; font-size:12px; margin: 0 0 2px 0;">
+                                <span
+                                    style="display:flex; align-items:center; gap:5px; color:#1e40af; font-weight:600;">
+                                    <i class="fas fa-bullseye" style="font-size:11px;"></i>
+                                    Đang xem: <span id="concept-banner-label" style="color:#0f172a;"></span>
+                                </span>
+                                <button id="btn-clear-concept" title="Quay về toàn bài (30 thẻ / 30 câu)"
+                                    style="background:none;border:1px solid #cbd5e1;border-radius:4px;padding:2px 8px;font-size:11px;cursor:pointer;color:#64748b;transition:all 0.2s;">
+                                    ✕ Toàn bài
+                                </button>
+                            </div>
+
+                            <!-- Panel 1: Flashcards View -->
+                            <div id="panel-flashcards-view" class="panel-body"
+                                style="display: flex; flex-direction: column;">
                                 <div class="flashcard-interactive">
                                     <div class="flip-card">
                                         <div class="flip-card-inner" id="demo-flashcard">
-                                            <!-- Mặt trước -->
+                                            <!-- Front -->
                                             <div class="flip-card-front">
-                                                <span class="card-tag" id="fc-tag">Lát cắt 1 câu</span>
-                                                <h4 id="fc-question">Câu hỏi sẽ hiện ở đây</h4>
-                                                <div class="mcq-options" id="fc-options">
-                                                    <!-- Options sẽ được JS render -->
-                                                </div>
-                                                <p class="click-hint"><i class="fas fa-hand-pointer"></i> Nhấp vào thẻ để xem đáp án</p>
+                                                <span class="card-tag" id="fc-tag">Cost of Error</span>
+                                                <h4 id="fc-question">Nếu AI lọc CV, 'Cost of error' lớn nhất là gì?</h4>
+                                                <div class="mcq-options" id="fc-options"></div>
+                                                <p class="click-hint"><i class="fas fa-hand-pointer"></i> Bấm để lật xem
+                                                    định nghĩa & ví dụ</p>
                                             </div>
-                                            <!-- Mặt sau -->
+                                            <!-- Back -->
                                             <div class="flip-card-back">
                                                 <div class="answer-content">
-                                                    <h4><i class="fas fa-check-circle"></i> Đáp án:</h4>
-                                                    <p id="fc-answer">Đáp án sẽ hiện ở đây</p>
+                                                    <h4 id="fc-concept-back"><i class="fas fa-lightbulb"></i> Giải thích
+                                                        khái niệm</h4>
+                                                    <p id="fc-answer">B. Loại nhầm ứng viên giỏi (False Negative)</p>
+                                                    <p id="fc-example"
+                                                        style="font-size: 11px; margin-top: 8px; color: #475569; font-style: italic;">
+                                                        Ví dụ: Bỏ sót nhân tài quan trọng gây tổn thất cho công ty.</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                
                                 <div class="flashcard-actions">
-                                    <div class="flashcard-stats">
-                                        <span id="fc-counter"><i class="fas fa-layer-group"></i> 1 / 5 Thẻ</span>
-                                    </div>
-                                    <div class="flashcard-nav">
-                                        <button id="btn-fc-wrong" class="icon-btn btn-outline" title="Chưa thuộc"><i class="fas fa-times text-danger"></i></button>
-                                        <button id="btn-fc-correct" class="icon-btn btn-outline" title="Đã thuộc"><i class="fas fa-check text-success"></i></button>
+                                    <div class="flashcard-stats" id="fc-counter"><i class="fas fa-layer-group"></i> 1 /
+                                        5 Thẻ</div>
+                                    <div class="flashcard-nav" style="display: flex; gap: 8px;">
+                                        <button id="btn-fc-prev" class="btn-outline btn-sm" title="Thẻ trước"><i
+                                                class="fas fa-chevron-left"></i> Thẻ trước</button>
+                                        <button id="btn-fc-next" class="btn-primary btn-sm" title="Thẻ tiếp">Thẻ tiếp <i
+                                                class="fas fa-chevron-right"></i></button>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- LỊCH SỬ RÚT GỌN (1 DÒNG) -->
-                        <div class="panel history-mini-panel" id="btn-open-history" style="cursor: pointer; transition: all 0.2s;">
-                            <div class="panel-body" style="padding: 12px 16px; display: flex; align-items: center; justify-content: space-between;">
-                                <div style="display: flex; align-items: center; gap: 8px;">
-                                    <i class="fas fa-history" style="color: var(--vl-primary);"></i>
-                                    <strong style="font-size: 13px; color: var(--vl-text-main);">Lịch sử học</strong>
+                            <!-- Panel 2: Quiz View (Step-by-step Question Navigation) -->
+                            <div id="panel-quiz-view" class="panel-body" style="display: none; flex-direction: column;">
+                                <div id="quiz-concept-header"
+                                    style="font-size: 13px; font-weight: 700; color: var(--vl-primary); margin-bottom: 8px;">
+                                    Quiz: Cost of Error (Câu 1/3)
                                 </div>
-                                <div style="font-size: 12px; color: var(--vl-text-sub); display: flex; align-items: center; gap: 8px;">
-                                    Vừa xong: Day 02 <i class="fas fa-chevron-right"></i>
+                                <div id="quiz-questions-container" style="flex: 1; overflow-y: auto;">
+                                    <!-- Quiz Question rendered dynamically step-by-step -->
+                                </div>
+                                <div id="quiz-nav-controls" style="display: flex; gap: 8px; margin-top: 12px;">
+                                    <button id="btn-quiz-prev" class="btn-outline btn-sm" style="flex: 1;"><i
+                                            class="fas fa-chevron-left"></i> Câu trước</button>
+                                    <button id="btn-quiz-next" class="btn-primary btn-sm" style="flex: 1;">Câu tiếp <i
+                                            class="fas fa-chevron-right"></i></button>
+                                    <button id="btn-submit-quiz" class="btn-primary btn-sm"
+                                        style="flex: 1; display: none;"><i class="fas fa-paper-plane"></i> Submit
+                                        Quiz</button>
+                                </div>
+                                <div id="quiz-feedback-box" style="margin-top: 12px; font-size: 12px; display: none;">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- LỊCH SỬ RÚT GỌN (1 DÒNG) -->
+                <div class="panel history-mini-panel" id="btn-open-history"
+                    style="cursor: pointer; transition: all 0.2s;">
+                    <div class="panel-body"
+                        style="padding: 12px 16px; display: flex; align-items: center; justify-content: space-between;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <i class="fas fa-history" style="color: var(--vl-primary);"></i>
+                            <strong style="font-size: 13px; color: var(--vl-text-main);">Lịch sử học</strong>
+                        </div>
+                        <div
+                            style="font-size: 12px; color: var(--vl-text-sub); display: flex; align-items: center; gap: 8px;">
+                            Vừa xong: Day 02 <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </main>
-        
-        <!-- FLOATING BUTTONS (Mép phải) -->
-        <div class="floating-actions">
-            <!-- Nút Robot hiện có của VLearn -->
-            <button class="fab-btn vlearn-ai-btn" title="Chat với VLearn AI">
-                <i class="fas fa-robot"></i>
-            </button>
-            
-            <!-- Nút Tạo Tổng kết Ôn tập CỦA CHÚNG TA (Nổi bật hơn) -->
-            <button id="btn-generate-summary" class="fab-btn auto-summary-btn" title="Tạo Tổng kết & Ôn tập (AI)">
-                <i class="fas fa-magic"></i>
-            </button>
-        </div>
+    </div>
+    </div>
+    </main>
+
+    <!-- FLOATING BUTTONS (Mép phải) -->
+    <div class="floating-actions">
+        <!-- Nút Robot hiện có của VLearn -->
+        <button class="fab-btn vlearn-ai-btn" title="Chat với VLearn AI">
+            <i class="fas fa-robot"></i>
+        </button>
+
+        <!-- Nút Tạo Tổng kết Ôn tập CỦA CHÚNG TA (Nổi bật hơn) -->
+        <button id="btn-generate-summary" class="fab-btn auto-summary-btn" title="Tạo Tổng kết & Ôn tập (AI)">
+            <i class="fas fa-magic"></i>
+        </button>
+    </div>
     </div>
 
     <!-- SLIDE MODAL -->
@@ -360,6 +525,22 @@
         </div>
     </div>
 
+    <!-- Modular AI Companion Architecture -->
+    <script src="config/ai_config.js"></script>
+    <script src="utils/json_parser.js"></script>
+    <script src="utils/validator.js"></script>
+    <script src="prompts/prompt.js"></script>
+    <script src="services/llm_provider.js"></script>
+    <script src="services/pdf_parser_service.js"></script>
+    <script src="services/lesson_loader.js"></script>
+    <script src="services/mindmap_service.js"></script>
+    <script src="services/flashcard_service.js"></script>
+    <script src="services/summary_service.js"></script>
+    <script src="services/quiz_service.js"></script>
+    <script src="services/evaluation_service.js"></script>
+    <script src="ai_service.js"></script>
+    <script src="controllers/ai_companion_facade.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
