@@ -50,9 +50,19 @@
                         <i class="far fa-play-circle" style="color: #64748b; font-size: 18px;"></i>
                         <div class="acc-text">
                             <strong>Day01</strong>
-                            <p>2 TÀI LIỆU - PUBLISHED</p>
+                            <p>1 TÀI LIỆU - PUBLISHED</p>
                         </div>
                         <i class="fas fa-chevron-down acc-icon"></i>
+                    </div>
+                    <div class="accordion-body hidden">
+                        <div class="doc-item" data-pdf="/data/vlearn-pack/slides/d1-slide-hackathon.pdf" data-title="d1-slide-hackathon.pdf" style="cursor: pointer;">
+                            <i class="far fa-play-circle"></i>
+                            <div class="doc-item-text">
+                                <strong>d1-slide-hackathon.pdf</strong>
+                                <p>52 trang</p>
+                            </div>
+                            <i class="far fa-check-circle" style="color: #2563eb;"></i>
+                        </div>
                     </div>
                 </div>
                 
@@ -68,7 +78,7 @@
                         <i class="fas fa-chevron-up acc-icon"></i>
                     </div>
                     <div class="accordion-body">
-                        <div class="doc-item active">
+                        <div class="doc-item active" data-pdf="/data/vlearn-pack/slides/d2-slide-hackathon.pdf" data-title="d2-slide-hackathon.pdf" style="cursor: pointer;">
                             <i class="far fa-play-circle"></i>
                             <div class="doc-item-text">
                                 <strong>d2-slide-hackathon.pdf</strong>
@@ -141,7 +151,7 @@
                 
                 <div class="pdf-viewer-area">
                     <div class="pdf-page-container">
-                        <iframe id="main-pdf-iframe" src="../data/vlearn-pack/slides/d2-slide-hackathon.pdf#page=1&toolbar=0&navpanes=0&scrollbar=0" width="100%" height="100%" frameborder="0"></iframe>
+                        <iframe id="main-pdf-iframe" src="/data/vlearn-pack/slides/d2-slide-hackathon.pdf#page=1&toolbar=0&navpanes=0&scrollbar=0" width="100%" height="100%" frameborder="0"></iframe>
                     </div>
                 </div>
             </div>
@@ -158,7 +168,13 @@
             <div id="after-state" class="state-container">
                 <div class="dashboard-header">
                     <h2>TỔNG KẾT & ÔN TẬP (AI-POWERED)</h2>
-                    <button id="btn-back-to-reading" class="btn-sm btn-outline"><i class="fas fa-arrow-left"></i> Trở về bài giảng</button>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div id="progress-badge-container" class="status-badge" style="background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe;">
+                            <i class="fas fa-chart-line"></i> Hoàn thành: <strong id="val-completion" style="margin: 0 4px;">0%</strong> | Mastered: <strong id="val-mastery" style="margin: 0 4px;">0%</strong>
+                            <span id="progress-token-tag" class="badge-studying" style="margin-left: 6px; font-size: 9px;">NEW</span>
+                        </div>
+                        <button id="btn-back-to-reading" class="btn-sm btn-outline"><i class="fas fa-arrow-left"></i> Trở về bài giảng</button>
+                    </div>
                 </div>
                 
                 <div class="dashboard-grid">
@@ -206,18 +222,24 @@
                                         </li>
                                     </ul>
                                 </div>
+
                                 <!-- Popover -->
                                 <div id="node-popover" class="popover hidden">
                                     <div class="popover-content">
                                         <div class="popover-top">
                                             <span class="slide-ref"><i class="fas fa-file-pdf"></i> Nguồn: <strong id="popover-slide-num">Slide X</strong></span>
                                         </div>
-                                        <div class="popover-actions mt-8">
-                                            <button id="btn-view-slide" class="btn-sm btn-secondary">
-                                                <i class="fas fa-eye"></i> Xem Slide
-                                            </button>
-                                            <button id="btn-quick-flashcard" class="btn-sm btn-outline">
-                                                <i class="fas fa-bolt"></i> Tạo Flashcard
+                                        <div class="popover-actions mt-8" style="display: flex; flex-direction: column; gap: 8px;">
+                                            <div style="display: flex; gap: 8px;">
+                                                <button id="btn-view-slide" class="btn-sm btn-secondary full-width">
+                                                    <i class="fas fa-eye"></i> Xem Slide
+                                                </button>
+                                                <button id="btn-quick-flashcard" class="btn-sm btn-outline full-width">
+                                                    <i class="fas fa-bolt"></i> Luyện nhánh này
+                                                </button>
+                                            </div>
+                                            <button id="btn-personalize-flashcard" class="btn-sm btn-outline full-width hidden" style="border-color: var(--vl-primary); color: var(--vl-primary);">
+                                                <i class="fas fa-user-edit"></i> Cá nhân hoá lỗi sai
                                             </button>
                                         </div>
                                     </div>
@@ -231,7 +253,11 @@
                     <div class="right-column">
                         <div class="panel mb-16 flashcard-panel">
                             <div class="panel-header">
-                                <h3><i class="fas fa-clone"></i> Ôn tập Flashcard</h3>
+                                <h3><i class="fas fa-clone"></i> Ôn tập & Kiểm tra</h3>
+                                <div style="display: flex; gap: 8px;">
+                                    <button id="btn-mode-review" class="btn-sm btn-primary">Ôn tập</button>
+                                    <button id="btn-mode-quiz" class="btn-sm btn-outline">Take Quiz</button>
+                                </div>
                             </div>
                             <div class="panel-body" style="display: flex; flex-direction: column;">
                                 <div class="flashcard-interactive">
@@ -244,7 +270,7 @@
                                                 <div class="mcq-options" id="fc-options">
                                                     <!-- Options sẽ được JS render -->
                                                 </div>
-                                                <p class="click-hint"><i class="fas fa-hand-pointer"></i> Nhấp vào thẻ để xem đáp án</p>
+                                                <p class="click-hint" id="fc-click-hint"><i class="fas fa-hand-pointer"></i> Nhấp vào thẻ để xem đáp án</p>
                                             </div>
                                             <!-- Mặt sau -->
                                             <div class="flip-card-back">
@@ -258,12 +284,19 @@
                                 </div>
                                 
                                 <div class="flashcard-actions">
-                                    <div class="flashcard-stats">
-                                        <span id="fc-counter"><i class="fas fa-layer-group"></i> 1 / 5 Thẻ</span>
+                                    <div style="display: flex; gap: 6px; align-items: center;">
+                                        <button id="btn-card-prev" class="icon-btn btn-outline" title="Câu trước"><i class="fas fa-chevron-left"></i></button>
+                                        <div class="flashcard-stats">
+                                            <span id="fc-counter"><i class="fas fa-layer-group"></i> 1 / 5 Thẻ</span>
+                                        </div>
                                     </div>
-                                    <div class="flashcard-nav">
+                                    <div class="flashcard-nav" style="display: flex; gap: 6px; align-items: center;">
+                                        <button id="btn-submit-batch" class="btn-sm btn-primary" style="padding: 4px 10px; font-size: 11px; height: 32px;" title="Nộp bài và tính % hoàn thành lên Mindmap">
+                                            <i class="fas fa-paper-plane"></i> Nộp bài
+                                        </button>
                                         <button id="btn-fc-wrong" class="icon-btn btn-outline" title="Chưa thuộc"><i class="fas fa-times text-danger"></i></button>
                                         <button id="btn-fc-correct" class="icon-btn btn-outline" title="Đã thuộc"><i class="fas fa-check text-success"></i></button>
+                                        <button id="btn-card-next" class="icon-btn btn-outline" title="Câu sau"><i class="fas fa-chevron-right"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -276,8 +309,8 @@
                                     <i class="fas fa-history" style="color: var(--vl-primary);"></i>
                                     <strong style="font-size: 13px; color: var(--vl-text-main);">Lịch sử học</strong>
                                 </div>
-                                <div style="font-size: 12px; color: var(--vl-text-sub); display: flex; align-items: center; gap: 8px;">
-                                    Vừa xong: Day 02 <i class="fas fa-chevron-right"></i>
+                                <div id="mini-history-text" style="font-size: 12px; color: var(--vl-text-sub); display: flex; align-items: center; gap: 8px;">
+                                    Vừa xong: Day 02 - Xác định bài toán AI <i class="fas fa-chevron-right"></i>
                                 </div>
                             </div>
                         </div>
@@ -333,29 +366,39 @@
                 <table class="history-table">
                     <thead>
                         <tr>
-                            <th>Ngày học</th>
-                            <th>Nội dung bài học</th>
+                            <th>Thời gian</th>
+                            <th>Nội dung bài học / Nhánh</th>
                             <th>Mức độ hoàn thành</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>12/10/2024</td>
-                            <td>Day 01: Giới thiệu AI cơ bản</td>
-                            <td><strong>90%</strong> <i class="fas fa-check-circle text-success ml-4"></i></td>
-                        </tr>
-                        <tr>
-                            <td>18/10/2024</td>
-                            <td>Day 01: Giới thiệu AI (Ôn lại)</td>
-                            <td><strong>95%</strong> <i class="fas fa-check-circle text-success ml-4"></i></td>
-                        </tr>
-                        <tr class="active-row">
-                            <td>Hôm nay</td>
-                            <td>Day 02: Xác định bài toán AI</td>
-                            <td><span class="badge-status">Đang học</span></td>
-                        </tr>
+                    <tbody id="history-table-body">
+                        <!-- Dynamic History Rows -->
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- TUTOR CHAT MODAL -->
+    <div id="chat-modal" class="modal-overlay hidden">
+        <div class="modal-content" style="max-width: 650px; height: 75vh; display: flex; flex-direction: column;">
+            <div class="modal-header" style="background: #f8fafc;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-robot" style="color: var(--vl-primary); font-size: 18px;"></i>
+                    <h3 style="font-size: 15px; font-weight: 700;">Tutor AI - Giải đáp thắc mắc bài giảng</h3>
+                </div>
+                <button id="btn-close-chat" class="icon-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="chat-messages-container" class="modal-body" style="flex: 1; overflow-y: auto; padding: 16px; background: #ffffff; display: flex; flex-direction: column; gap: 12px;">
+                <div class="chat-msg system-msg" style="background: #f1f5f9; padding: 10px 14px; border-radius: 8px; font-size: 13px; color: var(--vl-text-sub);">
+                    <i class="fas fa-info-circle" style="color: var(--vl-primary);"></i> Xin chào! Mình là Tutor AI. Bạn có thắc mắc gì về bài giảng <strong>Day 02: Xác định bài toán AI</strong> không?
+                </div>
+            </div>
+            <div class="modal-footer" style="padding: 12px 16px; border-top: 1px solid var(--vl-border); background: #f8fafc; display: flex; gap: 8px;">
+                <input type="text" id="chat-input" placeholder="Nhập câu hỏi của bạn..." style="flex: 1; padding: 10px 14px; border: 1px solid var(--vl-border); border-radius: 8px; font-size: 13px; outline: none;">
+                <button id="btn-send-chat" class="btn-primary" style="padding: 8px 16px; font-size: 13px;">
+                    <i class="fas fa-paper-plane"></i> Gửi
+                </button>
             </div>
         </div>
     </div>
