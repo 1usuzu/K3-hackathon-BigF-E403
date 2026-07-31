@@ -5,11 +5,10 @@
 
 | Mã Học Viên | Họ và Tên | Vai trò / Phân công công việc |
 | :--- | :--- | :--- |
-| [Mã HV 1] | [Tên thành viên 1] | [VD: Viết AI Spec, Prompt Engineering] |
-| [Mã HV 2] | [Tên thành viên 2] | [VD: Code Frontend (React)] |
-| [Mã HV 3] | [Tên thành viên 3] | [VD: Code Backend (Python), Tích hợp LLM] |
-| [Mã HV 4] | [Tên thành viên 4] | [VD: User Testing, Xây dựng Golden Set] |
-| [Mã HV 5] | [Tên thành viên 5] | [VD: Chuẩn bị Demo Slide, Viết Reflection] |
+| [2A202601774] | [Lưu Xuân Dũng] | [Viết AI Spec, Prompt Engineering] |
+| [2A202601953] | [Nguyễn Phương Thùy] | [Code Frontend (React)] |
+| [2A20260160] | [Nguyễn Thị Huyền Trang] | [Code Backend (Python), Tích hợp AI] |
+| [2A202601322] | [Lê Thị Trúc Linh] | [User Testing, Xây dựng Golden Set] |
 
 ## 📁 Cấu trúc thư mục nộp bài
 Dự án được tổ chức theo quy định của ban tổ chức:
